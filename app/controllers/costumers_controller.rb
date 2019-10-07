@@ -1,4 +1,4 @@
-class CostumeRsController < ApplicationController
+class CostumersController < ApplicationController
 
 
   get "/costumers" do
