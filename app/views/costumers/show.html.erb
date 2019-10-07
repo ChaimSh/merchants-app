@@ -1,1 +1,10 @@
-<h1>This is the show page for an individual instance of your model.</h1>
+<%=@costumer.name%>
+
+<a href="/costumers/<%= @costumer.id %>/edit">Edit Costumer</a>
+
+
+<form action="/constumers/<%= @costumer.id %>" method="post">
+ <input id="hidden" type="hidden" name="_method" value="DELETE">
+   <input type="submit" value="Delete Costumer" id="Delete Costumer">
+
+</form>

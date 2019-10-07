@@ -1,1 +1,11 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
+
+<form action="/costumers/<%= @costumer.id %>" method="POST">
+   <input id="hidden" type="hidden" name="_method" value="patch">
+
+   Name
+   <input type="text" name="naem" value="<%= @costumer.name %>">
+   <br>
+   Edit costumer:
+
+   <input type="submit" name="submit" value="submit">
+</form>
