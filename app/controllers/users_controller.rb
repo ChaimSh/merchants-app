@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   
   
-get '/signup' do
+  get '/signup' do
     if logged_in?
       redirect '/costumers/index.html'
     else
-      erb :signup
+      erb :'/users/signup'
     end
   end
   
@@ -15,7 +15,7 @@ get '/signup' do
       session[:user_id] = @user.id
       redirect '/products/index.html'
     else
-      redirect "/signup"
+      redirect "/users/signup"
     end
   end
   
@@ -25,7 +25,7 @@ get '/signup' do
     if logged_in?
       redirect '/products/index.html'
     else
-      erb :'/login'
+      erb :'/users/login'
     end
   end
   
@@ -38,14 +38,14 @@ get '/signup' do
       redirect "/products/index.html"
 
     else
-      redirect "/login"
+      redirect "/users/login"
     end
   end
 
   get '/logout' do
     if logged_in?
       session.clear
-      redirect "/login"
+      redirect "/users/login"
     else
       redirect "/"
     end
