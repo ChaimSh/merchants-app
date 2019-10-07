@@ -1,0 +1,6 @@
+class CostumeRsController < ApplicationController
+  
+  
+
+
+end

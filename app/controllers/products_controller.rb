@@ -1,37 +1,37 @@
 class ProducTsController < ApplicationController
 
   # GET: /produc_ts
-  get "/produc_ts" do
-    erb :"/produc_ts/index.html"
+  get "/products" do
+    erb :"/products/index.html"
   end
 
   # GET: /produc_ts/new
-  get "/produc_ts/new" do
-    erb :"/produc_ts/new.html"
+  get "/products/new" do
+    erb :"/products/new.html"
   end
 
   # POST: /produc_ts
-  post "/produc_ts" do
-    redirect "/produc_ts"
+  post "/products" do
+    redirect "/products"
   end
 
   # GET: /produc_ts/5
-  get "/produc_ts/:id" do
-    erb :"/produc_ts/show.html"
+  get "/products/:id" do
+    erb :"/products/show.html"
   end
 
   # GET: /produc_ts/5/edit
-  get "/produc_ts/:id/edit" do
-    erb :"/produc_ts/edit.html"
+  get "/products/:id/edit" do
+    erb :"/products/edit.html"
   end
 
   # PATCH: /produc_ts/5
-  patch "/produc_ts/:id" do
-    redirect "/produc_ts/:id"
+  patch "/products/:id" do
+    redirect "/products/:id"
   end
 
   # DELETE: /produc_ts/5/delete
-  delete "/produc_ts/:id/delete" do
-    redirect "/produc_ts"
+  delete "/products/:id/delete" do
+    redirect "/products"
   end
 end
