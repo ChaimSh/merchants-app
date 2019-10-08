@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
   # POST: /produc_ts
   post "/products" do
      if params[:name] !="" && params[:price] !=""
-       @products = Product.create(name: params[:name], price: params[:price])   
+       @product = Product.create(name: params[:name], price: params[:price])   
        redirect "/products"
      else
         redirect "/products/new"
@@ -35,7 +35,7 @@ class ProductsController < ApplicationController
     if !logged_in?
       redirect "/users/login"
     else
-      @products = Product.find(params[:id])
+      @product = Product.find(params[:id])
       erb :"/products/show.html"
     end
   end
@@ -45,7 +45,7 @@ class ProductsController < ApplicationController
     if !logged_in?
       redirect "/users/login"
     else
-      @products = Product.find(params[:id])
+      @product = Product.find(params[:id])
       erb :"/products/edit.html"
     end
   end
