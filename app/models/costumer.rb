@@ -1,3 +1,3 @@
-class COSTUMER < ActiveRecord::Base
+class Costumer < ActiveRecord::Base
   has_many :products
 end

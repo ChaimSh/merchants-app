@@ -22,8 +22,9 @@ class CostumersController < ApplicationController
   
   post "/costumers" do
     if params[:name] !=""
-      @user = User.find(session[:user_id])
-      @user.name << Costumer.create(name: params[:name])
+      @user = current_user.costumers.create(name: params[:name])
+      # @user = User.find(session[:user_id])
+      # @user.costumers << Costumer.create(name: params[:name])
       redirect "/costumers"
     else
       redirect "/costumers/new"
@@ -62,8 +63,16 @@ class CostumersController < ApplicationController
          end
   end
 
-  # DELETE: /costume_rs/5/delete
+  
   delete "/costumers/:id/delete" do
-    redirect "/costumers"
+    costumer = Costumer.find_by(params[:id])
+      if costumer.user_id == session[:user_id]
+
+        costumer.delete
+  
+        redirect "/costumers"
+      else
+        redirect "/costumers/#{costumer.id}"
+      end
   end
 end
