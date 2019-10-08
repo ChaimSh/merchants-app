@@ -1,3 +1,4 @@
+
 class ProductsController < ApplicationController
 
   # GET: /produc_ts

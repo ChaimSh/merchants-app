@@ -1,3 +1,4 @@
+require 'pry'
 class CostumersController < ApplicationController
 
 
@@ -22,7 +23,8 @@ class CostumersController < ApplicationController
   
   post "/costumers" do
     if params[:name] !=""
-      @user = current_user.costumers.create(name: params[:name])
+       @costumer = Costumer.create(name: params[:name])   
+      # @user = current_user.costumers.create(name: params[:name])
       # @user = User.find(session[:user_id])
       # @user.costumers << Costumer.create(name: params[:name])
       redirect "/costumers"

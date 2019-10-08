@@ -1,3 +1,4 @@
 class Product < ActiveRecord::Base
-  belongs_to :costumer
+  belongs_to :costumers
+  belongs_to :users
 end
