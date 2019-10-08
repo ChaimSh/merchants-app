@@ -57,7 +57,7 @@ class CostumersController < ApplicationController
   post "/costumers/:id" do
       
       costumer = Costumer.find(params[:id])
-         if params[:content] != ""
+         if params[:name] != ""
            costumer.update(name: params[:name])
            costumer.save
            redirect "/costumers/#{costumer.id}"
