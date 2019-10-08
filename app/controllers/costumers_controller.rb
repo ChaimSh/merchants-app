@@ -54,7 +54,8 @@ class CostumersController < ApplicationController
   end
 
   # PATCH: /costume_rs/5
-  patch "/costumers/:id" do
+  post "/costumers/:id" do
+      
       costumer = Costumer.find(params[:id])
          if params[:content] != ""
            costumer.update(name: params[:name])

@@ -1,9 +1,9 @@
 
-<form action="/costumers/<%= @costumer.id %>" method="POST">
+<form action="/costumers/<%= @costumer.id %>" method="post">
    <input id="hidden" type="hidden" name="_method" value="patch">
 
    Name
-   <input type="text" name="naem" value="<%= @costumer.name %>">
+   <input type="text" name="name" value="<%= @costumer.name %>">
    <br>
    Edit costumer:
 
