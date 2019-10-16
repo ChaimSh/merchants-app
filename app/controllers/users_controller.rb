@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   
   get '/signup' do
     if logged_in?
-      redirect '/costumers/index.html'
+      redirect '/costumers'
     else
       erb :'/users/signup'
     end
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if params[:username] != "" && params[:email] != "" && params[:password] != ""
       @user = User.create(username: params[:username], email: params[:email], password: params[:password])
       session[:user_id] = @user.id
-      redirect '/products/index.html'
+      redirect '/products'
     else
       redirect "/users/signup"
     end
