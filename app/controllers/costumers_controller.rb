@@ -36,7 +36,7 @@ class CostumersController < ApplicationController
   # GET: /costume_rs/5
   get "/costumers/:id" do
     if !logged_in?
-      redirect "/users/login"
+      redirect "/login"
     else
       @costumer = Costumer.find(params[:id])
       erb :"/costumers/show.html"
@@ -46,7 +46,7 @@ class CostumersController < ApplicationController
   # GET: /costume_rs/5/edit
   get "/costumers/:id/edit" do
     if !logged_in?
-      redirect "/users/login"
+      redirect "/login"
     else
       @costumer = Costumer.find(params[:id])
       erb :"/costumers/edit.html"

@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   # GET: /produc_ts
   get "/products" do
     if !logged_in?
-       redirect "/users/login"
+       redirect "/login"
      else
        @user = User.find(session[:user_id])
        erb :"/products/index.html"
@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
   # GET: /produc_ts/new
   get "/products/new" do
     if !logged_in?
-       redirect to "/users/login"
+       redirect to "/login"
     else
       erb :"/products/new.html"
     end
@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
   # GET: /produc_ts/5
   get "/products/:id" do
     if !logged_in?
-      redirect "/users/login"
+      redirect "/login"
     else
       @product = Product.find(params[:id])
       erb :"/products/show.html"
@@ -43,7 +43,7 @@ class ProductsController < ApplicationController
   # GET: /produc_ts/5/edit
   get "/products/:id/edit" do
     if !logged_in?
-      redirect "/users/login"
+      redirect "/login"
     else
       @product = Product.find(params[:id])
       erb :"/products/edit.html"

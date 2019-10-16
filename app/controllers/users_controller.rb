@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   
   get '/login' do
     if logged_in?
-      redirect '/products/index.html'
+      redirect '/products'
     else
       erb :'/users/login'
     end
@@ -38,14 +38,14 @@ class UsersController < ApplicationController
       redirect "/products/index.html"
 
     else
-      redirect "/users/login"
+      redirect "/login"
     end
   end
 
   get '/logout' do
     if logged_in?
       session.clear
-      redirect "/users/login"
+      redirect "/login"
     else
       redirect "/"
     end
