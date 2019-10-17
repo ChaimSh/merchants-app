@@ -24,8 +24,13 @@ class CostumersController < ApplicationController
   
   post "/costumers" do
     if params[:name] !=""
+      # binding.pry
        @costumer = Costumer.create(name: params[:name])
-       @costumer.products = params[:products]
+       @products = params[:costumer][:product]
+       @products.each do |prod|
+         pr = Product.find(prod)
+         @costumer.products << pr
+       end
        @costumer.save
       # @user = current_user.costumers.create(name: params[:name])
       # @user = User.find(session[:user_id])
