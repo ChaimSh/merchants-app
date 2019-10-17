@@ -5,7 +5,7 @@
   
   Product:
   <% @products.each do |product| %>
-  <input id="<%= product.name %>" type="checkbox" name="costumer[product][]" value="<%= product.id %>"><%= product.name %><br>
+  <input id="<%= product.name %>" type="checkbox" name="costumer[product_ids][]" value="<%= product.id %>"><%= product.name %><br>
   <% end %>
   
   <input type="submit" name="submit" id="submit">

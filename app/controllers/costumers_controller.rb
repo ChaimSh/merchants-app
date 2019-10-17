@@ -24,10 +24,11 @@ class CostumersController < ApplicationController
   
   post "/costumers" do
     if params[:name] !=""
-      # binding.pry
+       #binding.pry
+       
        @costumer = Costumer.create(name: params[:name])
-       @products = params[:costumer][:product]
-       @products.each do |prod|
+       @products_ids = params[:costumer][:product_ids]
+       @products_ids.each do |prod|
          pr = Product.find(prod)
          @costumer.products << pr
        end
