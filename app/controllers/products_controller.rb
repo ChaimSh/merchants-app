@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
     if !logged_in?
        redirect "/login"
      else
+             
        @user = User.find(session[:user_id])
        erb :"/products/index.html"
      end
@@ -16,6 +17,7 @@ class ProductsController < ApplicationController
     if !logged_in?
        redirect to "/login"
     else
+      
       erb :"/products/new.html"
     end
   end

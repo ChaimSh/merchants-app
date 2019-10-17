@@ -1,7 +1,13 @@
 <form action='/costumers' method="post">
+  
   Name:
-  <input type="text" name="name"><br>
-
+  <input type="text" name="name" required><br>
+  
+  Product:
+  <% @products.each do |product| %>
+  <input id="<%= product.name %>" type="checkbox" name="products" value="<%= product.id %>"><%= product.name %><br>
+  <% end %>
+  
   <input type="submit" name="submit" id="submit">
 
 

@@ -16,6 +16,7 @@ class CostumersController < ApplicationController
      if !logged_in?
        redirect to "/users/login"
      else
+       @products = Product.all
        erb :"/costumers/new.html"
      end
   end
@@ -23,7 +24,9 @@ class CostumersController < ApplicationController
   
   post "/costumers" do
     if params[:name] !=""
-       @costumer = Costumer.create(name: params[:name])   
+       @costumer = Costumer.create(name: params[:name])
+       @costumer.products = params[:products]
+       @costumer.save
       # @user = current_user.costumers.create(name: params[:name])
       # @user = User.find(session[:user_id])
       # @user.costumers << Costumer.create(name: params[:name])
