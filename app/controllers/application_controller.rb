@@ -32,7 +32,7 @@ class ApplicationController < Sinatra::Base
     if logged_in?
       redirect '/costumers'
     else
-      erb :'/users/signup'
+      erb :'/signup'
     end
   end
   
@@ -42,7 +42,7 @@ class ApplicationController < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/products'
     else
-      redirect "/users/signup"
+      redirect "/signup"
     end
   end
   
@@ -52,7 +52,7 @@ class ApplicationController < Sinatra::Base
     if logged_in?
       redirect '/products'
     else
-      erb :'/users/login'
+      erb :'/login'
     end
   end
   
