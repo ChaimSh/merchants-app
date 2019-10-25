@@ -23,14 +23,14 @@ class ApplicationController < Sinatra::Base
 
 
    def current_user
-     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+     @current_user ||= Costumer.find_by(id: session[:user_id]) if session[:user_id]
      end
    end
    
      
   get '/signup' do
     if logged_in?
-      redirect '/costumers'
+      redirect '/products'
     else
       erb :'/signup'
     end
@@ -38,8 +38,8 @@ class ApplicationController < Sinatra::Base
   
   post '/signup' do
     if params[:username] != "" && params[:email] != "" && params[:password] != ""
-      @user = User.create(username: params[:username], email: params[:email], password: params[:password])
-      session[:user_id] = @user.id
+      @costumer = Costumer.create(name: params[:username], email: params[:email], password: params[:password])
+      session[:user_id] = @costumer.id
       redirect '/products'
     else
       redirect "/signup"
@@ -58,21 +58,30 @@ class ApplicationController < Sinatra::Base
   
 
   post '/login' do
-    user = User.find_by(username: params[:username])
-
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect "/products/index.html"
-
+   @user = Costumer.find_by(name: params[:username].strip, password: params[:password].strip)
+    if !@user.nil?
+     session[:user_id] = @user.id
+     redirect to '/products'
     else
-      redirect "/login"
+     redirect to '/login'
     end
+   
+  
+    # user = Costumer.find_by(name: params[:username])
+
+    # if user && user.authenticate(params[:password])
+    #   session[:user_id] = user.id
+    #   redirect "/products/index.html"
+
+    # else
+    #   redirect "/login"
+    # end
   end
 
   get '/logout' do
     if logged_in?
       session.clear
-      redirect "/login"
+      redirect "/"
     else
       redirect "/"
     end

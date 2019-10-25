@@ -6,7 +6,7 @@ class CostumersController < ApplicationController
     if !logged_in?
        redirect "/users/login"
      else
-       @user = User.find(session[:user_id])
+       @user = Costumer.find(session[:user_id])
        erb :"/costumers/index.html"
     end
   end

@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
        redirect "/login"
      else
              
-       @user = User.find(session[:user_id])
+       @costumer = Costumer.find(session[:user_id])
        erb :"/products/index.html"
      end
   end
