@@ -5,6 +5,5 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 run ApplicationController
-use UsersController
 use ProductsController
 use CostumersController
