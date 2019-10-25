@@ -81,3 +81,15 @@ class ApplicationController < Sinatra::Base
 
 
 end
+
+
+# <% @products.each do |product| %>
+#   <input id="<%= product.name %>" type="checkbox" name="costumer[product_ids][]" value="<%= product.id %>"><%= product.name %><br>
+#   <% end %>
+  
+
+
+
+
+
+
