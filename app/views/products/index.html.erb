@@ -1,5 +1,14 @@
+<h1>List of Purchased Products</h1>
+
 <%Product.all.each do |product|%>
-<ul>
-<%=product.name%> <br> <%=product.price%>
-</ul>
+<ol>
+  <li><h3><%=product.name%> - $<%=product.price%></h3></li>
+</ol>
 <%end%>
+<br><br>
+To create a new product, please click here <br>
+To Edit, please click here. <br>
+To Delete, please click here. <br>
+To logout, please click here <br>
+
+Thank You!
