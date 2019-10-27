@@ -12,14 +12,14 @@ class CostumersController < ApplicationController
   end
 
   
-  get "/costumers/new" do
-     if !logged_in?
-       redirect to "/users/login"
-     else
-       @products = Product.all
-       erb :"/costumers/new.html"
-     end
-  end
+  # get "/costumers/new" do
+  #   if !logged_in?
+  #     redirect to "/users/login"
+  #   else
+  #     @products = Product.all
+  #     erb :"/costumers/new.html"
+  #   end
+  # end
 
   
   post "/costumers" do
@@ -38,14 +38,14 @@ class CostumersController < ApplicationController
   end
 
   # GET: /costume_rs/5
-  get "/costumers/:id" do
-    if !logged_in?
-      redirect "/login"
-    else
-      @costumer = Costumer.find(params[:id])
-      erb :"/costumers/show.html"
-    end
-  end
+  # get "/costumers/:id" do
+  #   if !logged_in?
+  #     redirect "/login"
+  #   else
+  #     @costumer = Costumer.find(params[:id])
+  #     erb :"/costumers/show.html"
+  #   end
+  # end
 
   # GET: /costume_rs/5/edit
   get "/costumers/:id/edit" do
@@ -71,15 +71,15 @@ class CostumersController < ApplicationController
   end
 
   
-  delete "/costumers/:id/delete" do
-    costumer = Costumer.find_by(params[:id])
-      if costumer.user_id == session[:user_id]
+  # delete "/costumers/:id/delete" do
+  #   costumer = Costumer.find_by(params[:id])
+  #     if costumer.user_id == session[:user_id]
 
-        costumer.delete
+  #       costumer.delete
   
-        redirect "/costumers"
-      else
-        redirect "/costumers/#{costumer.id}"
-      end
-  end
+  #       redirect "/costumers"
+  #     else
+  #       redirect "/costumers/#{costumer.id}"
+  #     end
+  # end
 end
