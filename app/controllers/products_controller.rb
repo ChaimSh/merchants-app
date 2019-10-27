@@ -28,7 +28,9 @@ use Rack::Flash
   # POST: /produc_ts
   post "/products" do
      if params[:name] !="" && params[:price] !=""
-       @product = Product.create(name: params[:name], price: params[:price]) 
+       @costumer = Costumer.find(session[:user_id])
+       @costumer.products << Product.create(name: params[:name], price: params[:price])
+       
          flash[:message] = "Successfully created new product."
        redirect "/products"
      else
@@ -72,10 +74,8 @@ use Rack::Flash
 
   # DELETE: /produc_ts/5/delete
   delete "/products/:id" do
-     product = Product.find_by(params[:id])
-    binding.pry
-     if product.costumer_id == session[:user_id]
-       
+     product = Product.find(params[:id])
+     if logged_in? && product.costumer_id == session[:user_id]
         product.delete
            flash[:message] = "Successfully deleted product."
          redirect "/products"
