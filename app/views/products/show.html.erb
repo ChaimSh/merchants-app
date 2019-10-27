@@ -1,11 +1,14 @@
+Product Name:
 <%=@product.name%>
-<br>
-<%=@product.price%>
-<a href="/products/<%= @product.id %>/edit">Edit Product</a>
-
-
+<br><br>
+Product Price: $<%=@product.price%>
+<br><br>
+Click here to
+<a href="/products/<%= @product.id %>/edit">edit product</a>
+<br><br>
+Click here to 
 <form action="/products/<%= @product.id %>" method="post">
  <input id="hidden" type="hidden" name="_method" value="DELETE">
-   <input type="submit" value="Delete Product" id="Delete Product">
+   <input type="submit" value="Delete" id="Delete Product"> Product.
 
 </form>
