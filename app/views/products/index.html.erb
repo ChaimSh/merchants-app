@@ -1,12 +1,13 @@
+<%require 'pry'%>
 <h1>List of Purchased Products</h1>
 
 <%Product.all.each do |product|%>
 <ol>
-  <li><h3><%=product.name%> - $<%=product.price%></h3></li>
+  <li><h3><a href="/products/<%= product.id %>"><%=product.name%></a> - $<%=product.price%></h3></li>
 </ol>
 <%end%>
 <br>
-
+ 
 <br><br>
 
 To create a new product, please click <a href='/products/new' >here</a> <br>
