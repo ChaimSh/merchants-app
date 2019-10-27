@@ -1,5 +1,7 @@
-
+require 'rack-flash'
 class ProductsController < ApplicationController
+ enable :sessions
+use Rack::Flash
 
   # GET: /produc_ts
   get "/products" do
@@ -19,13 +21,15 @@ class ProductsController < ApplicationController
     else
       
       erb :"/products/new.html"
+      
     end
   end
 
   # POST: /produc_ts
   post "/products" do
      if params[:name] !="" && params[:price] !=""
-       @product = Product.create(name: params[:name], price: params[:price])   
+       @product = Product.create(name: params[:name], price: params[:price]) 
+         flash[:message] = "Successfully created new product."
        redirect "/products"
      else
         redirect "/products/new"
@@ -53,23 +57,27 @@ class ProductsController < ApplicationController
   end
 
   # PATCH: /produc_ts/5
-  post "/products/:id" do
+  patch "/products/:id" do
     product = Product.find(params[:id])
       if params[:name] != "" || params[:price]
         product.update(name: params[:name], price: params[:price])
+        flash[:message] = "Successfully updated product."
         product.save
         redirect "/products/#{product.id}"
+        
       else
         redirect "/products/#{product.id}/edit"
       end
   end
 
   # DELETE: /produc_ts/5/delete
-  delete "/products/:id/delete" do
-     if product.user_id == session[:user_id]
-
+  delete "/products/:id" do
+     product = Product.find_by(params[:id])
+    binding.pry
+     if product.costumer_id == session[:user_id]
+       
         product.delete
-  
+           flash[:message] = "Successfully deleted product."
          redirect "/products"
      else
         redirect "/products/#{product.id}"
