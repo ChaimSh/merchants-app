@@ -2,6 +2,25 @@ require 'pry'
 class CostumersController < ApplicationController
 
 
+ get '/signup' do
+    if logged_in?
+      redirect '/products'
+    else
+      erb :'/signup'
+    end
+  end
+  
+  post '/signup' do
+    if params[:name] != "" && params[:email] != "" && params[:password] != ""
+      @costumer = Costumer.create(name: params[:name], email: params[:email], password: params[:password])
+      session[:user_id] = @costumer.id
+      redirect '/products'
+    else
+      redirect "/signup"
+    end
+  end
+
+
   get "/costumers" do
     if !logged_in?
        redirect "/users/login"

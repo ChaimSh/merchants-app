@@ -5,6 +5,6 @@ Installation
 
 -Download or clone this project
 -cd into the merchants-app directory
-run bundle install in your console
-run shotgun
-open your favorite browser and enter the given local url provided by the shotgun server!
+-run bundle install in your console
+-run shotgun
+-open your favorite browser and enter the given local url provided by the shotgun server!

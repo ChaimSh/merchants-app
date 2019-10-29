@@ -28,25 +28,7 @@ class ApplicationController < Sinatra::Base
    end
    
      
-  get '/signup' do
-    if logged_in?
-      redirect '/products'
-    else
-      erb :'/signup'
-    end
-  end
-  
-  post '/signup' do
-    if params[:username] != "" && params[:email] != "" && params[:password] != ""
-      @costumer = Costumer.create(name: params[:username], email: params[:email], password: params[:password])
-      session[:user_id] = @costumer.id
-      redirect '/products'
-    else
-      redirect "/signup"
-    end
-  end
-  
-  
+ 
   
   get '/login' do
     if logged_in?
