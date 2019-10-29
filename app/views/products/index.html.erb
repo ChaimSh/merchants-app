@@ -1,9 +1,9 @@
 <%require 'pry'%>
-<h1>List of Purchased Products</h1>
+<h1>Products Listing</h1>
 
 <%Product.all.each do |product|%>
 <ol>
-  <li><h3><a href="/products/<%= product.id %>"><%=product.name%></a> - $<%=product.price%></h3></li>
+  <li><h3><a href="/products/<%= product.id %>"><%=product.name%></a> - $<%=product.price%></h3><%=product.details%></li>
 </ol>
 <%end%>
 <br>
