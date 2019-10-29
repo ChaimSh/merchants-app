@@ -21,6 +21,7 @@ class CostumersController < ApplicationController
   end
 
 
+
   get "/costumers" do
     if !logged_in?
        redirect "/users/login"

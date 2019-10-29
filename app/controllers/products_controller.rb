@@ -31,7 +31,6 @@ use Rack::Flash
        @costumer = Costumer.find(session[:user_id])
        @costumer.products << Product.create(name: params[:name], price: params[:price])
        
-         flash[:message] = "Successfully created new product."
        redirect "/products"
      else
         redirect "/products/new"
@@ -50,7 +49,7 @@ use Rack::Flash
 
   # GET: /produc_ts/5/edit
   get "/products/:id/edit" do
-    if !logged_in?
+    if !logged_in? 
       redirect "/login"
     else
       @product = Product.find(params[:id])
@@ -61,11 +60,11 @@ use Rack::Flash
   # PATCH: /produc_ts/5
   patch "/products/:id" do
     product = Product.find(params[:id])
-      if params[:name] != "" || params[:price] != "" && product.costumer_id == session[:user_id]
+      if product.costumer_id == session[:user_id]
         product.update(name: params[:name], price: params[:price])
         flash[:message] = "Successfully updated product."
         product.save
-        redirect "/products/#{product.id}"
+        redirect "/products"
         
       else
         redirect "/products/#{product.id}/edit"
