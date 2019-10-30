@@ -60,7 +60,7 @@ use Rack::Flash
   # PATCH: /produc_ts/5
   patch "/products/:id" do
     product = Product.find(params[:id])
-      if product.costumer_id == session[:user_id]
+      if product.costumer_id == session[:user_id] && params[:name] !="" && params[:price] !=""
         product.update(name: params[:name], price: params[:price], details: params[:details])
         flash[:message] = "Successfully updated product."
         product.save
