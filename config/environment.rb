@@ -10,7 +10,9 @@ require 'bundler/setup'
 Bundler.require(:default, ENV['SINATRA_ENV'])
 
 ActiveRecord::Base.establish_connection(
+  # name of the database management system
   :adapter => "sqlite3",
+  #  sets the path to app’s database
   :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
 )
 
