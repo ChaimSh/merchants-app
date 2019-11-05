@@ -11,9 +11,9 @@ class CostumersController < ApplicationController
   end
   
   post '/signup' do
-    if params[:name] != "" && params[:email] != "" && params[:password] != ""
       @costumer = Costumer.create(name: params[:name], email: params[:email], password: params[:password])
       session[:user_id] = @costumer.id
+    if @costumer.save  
       redirect '/products'
     else
       redirect "/signup"

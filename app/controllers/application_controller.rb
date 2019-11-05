@@ -40,8 +40,9 @@ class ApplicationController < Sinatra::Base
   
 
   post '/login' do
-   @user = Costumer.find_by(name: params[:username].strip, password: params[:password].strip)
-    if !@user.nil?
+   @user = Costumer.find_by(name: params[:username].strip)
+   
+    if @user && @user.authenticate(params[:password])
      session[:user_id] = @user.id
      redirect to '/products'
     else
