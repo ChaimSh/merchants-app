@@ -1,10 +1,17 @@
-Merchants App Sinatra Project
-Welcome to the Merchants web application! This is a demo app created using Sinatra and ActiveRecord. Merchants displays a listing of products and their prices. The product information is user-provided, requiring a username and password to login.
+# Merchants App Sinatra Project
+Welcome to the Merchants web application! 
 
-Installation
+## Description
+This app was created using Sinatra and ActiveRecord. Merchants display a listing of products and their prices. The product information is user-provided, requiring a username and password to login.
 
--Download or clone this project
--cd into the merchants-app directory
--run bundle install in your console
--run shotgun
--open your favorite browser and enter the given local url provided by the shotgun server!
+## Installation
+1. Download or clone this project.
+2. Cd into the merchants-app directory.
+3. Run bundle install in your console.
+4. Run shotgun.
+5. Open your favorite browser and enter the given local url provided by the shotgun server.
+
+## Contribution
+Please feel free to contribute to my app.
+
+## License
