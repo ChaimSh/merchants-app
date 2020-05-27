@@ -15,3 +15,4 @@ This app was created using Sinatra and ActiveRecord. Merchants display a listing
 Please feel free to contribute to my app.
 
 ## License
+This product is registered under the MIT License - Copyright (c) 2020 Kirill (Chaim) Shcherbina. See ./LICENSE.
