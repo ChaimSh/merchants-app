@@ -4,6 +4,8 @@ Welcome to the Merchants web application!
 ## Demo
 YouTube: https://www.youtube.com/watch?v=0lGddEdVT58&t=
 
+![MerchantsApp](https://github.com/ChaimSh/merchants-app/blob/master/lib/ezgif.com-video-to-gif%20(4).gif?raw=true)
+
 ## Description
 This app was created using Sinatra and ActiveRecord. Merchants display a listing of products and their prices. The product information is user-provided, requiring a username and password to login.
 
